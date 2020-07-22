@@ -1,0 +1,105 @@
+
+INTRODUCTION
+- 1:58 Course Overview
+- 4:46 Application Architecture
+- 7:30 API DEMO
+
+CODING PART 1 - FIRST 2 API ENDPOINTS (GET / READ)
+- 10:10 Project Setup
+- 15:30 Create our Domain Model (Command)
+- 18:30 Build Our Repository Interface
+- 24:46 Implement our Repository Interface (Mock Reposiory)
+- 30:46 Create our Controller (CommandsController)
+- 35:59 Create 2x API Endpoints
+- 48:35 Using Dependency Injection
+
+CODING PART 2 - ENTITY FRAMEWORK & SQL SERVER
+- 55:35 Architecture Checkpoint
+- 56:58 Set Up SQL Server App Login
+- 1:00:36 Entityframework Packages
+- 1:03:48 Entityframework Toolset
+- 1:05:00 Create our Database Context (CommanderContext)
+- 1:08:33 Our Database Connecttion String
+- 1:13:42 Register our DB Context in Startup
+- 1:18:00 Create Migrations
+- 1:21:40 Cancel Migrations & revist Command Model
+- 1:23:10 Add Data Validations to Command Model
+- 1:24:49 Create Migrations (Again!)
+- 1:26:05 Run Migrations against Database
+- 1:28:04 Add Data to Database
+- 1:32:34 Revist Our Repository to use DB Context
+
+CODING PART 3 - DATA TRANSFER OBJECTS & CREATE ENDPOINT
+- 1:41:11 Architecture Checkpoint
+- 1:42:01 Why Data Transfer Objects?
+- 1:48:34 AutoMapper Package & Startup Registration
+- 1:51:42 Create our first DTO
+- 1:53:40 Creating a mapping Profile
+- 1:57:07 Updating Our Action Results to use DTOs
+
+CODING PART 4 - PUT, PATCH & DELETE API ENDPOINTS
+- 2:04:14 Architecture Checkpoint
+- 2:05:40 Updating our Repository for Creating Resources
+- 2:12:14 Create a New DTO (for Creating)
+- 2:15:47 Create 3rd API Endpoint to Create Resources
+- 2:26:38 Use CreatedAtRoute to return 201 CreatedAtRoute
+- 2:35:07 Add Annotations to DTO to avoid 500 Errors
+- 2:44:10 Update Repository to Support Updates
+- 2:47:09 Add a New DTO (for Updating)
+- 2:50:08 Add 4th API Endpoint for Updating (PUT Request)
+- 2:52:56 Update our AutoMapper Profile
+- 3:00:58 Overview of PATCH
+- 3:05:00 Install 2x packages to support PATCH
+- 3:07:09 Update Startup
+- 3:08:43 Update our AutoMapper Profile (Final Update)
+- 3:09:39 Add 5th API Endpoint for Updating (PATCH Request)
+- 3:19:45 Add 6th API Endpoint for Deleting (DELETE Request)
+
+FINAL THOUGHTS & ACKNOWLEDGEMENTS
+- 3:25:31 Final Thoughts
+- 3:26:20 Patreon Supporter Credits
+
+
+
+
+
+*INTRODUCTION*
+- 2:21 Course Overview
+- 5:46 Demo
+- 6:27 Tooling 
+
+*HTTPS OVERVIEW*
+- 6:49 What is HTTPS, SSL & TLS?
+- 7:46 Certificate & Authorities Overview
+- 9:44 What does a certificate contain?
+- 10:30 Public & Private Key Overview
+- 11:48 HTTPS How it Works (Interaction Diagram)
+
+*LOCALHOST SET UP*
+- 14:37 Scaffold Up our API
+- 19:25 Generating a Local Dev Certificate
+- 22:37 The need for a custom domain 
+
+*CUSTOM DOMAIN PART 1*
+- 23:56 Update HOSTS File
+- 27:02 Host name resolution order
+- 28:15 Create our Self-Signed Certificate
+- 35:00 Import Certificate into Trusted Root
+
+*CUSTOM DOMAIN PART 2*
+- 36:58 - User Secrets Overview
+- 38:30 - Configure User Secrets
+- 42:14 - Update appsettings.Development.json 
+- 44:07 - Create HostConfig static Class
+- 46:00 - Update Program Class - Read in Config
+- 49:55 - Load Certificate into Kestrel
+- 55:13 - Listen on Specific IP Address
+
+*FINAL THOUGHTS & ACKNOWLEDGEMENTS*
+- 57:57 - Wrap Up
+- 58:39 - Credits
+
+
+
+
+

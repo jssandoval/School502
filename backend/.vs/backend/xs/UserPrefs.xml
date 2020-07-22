@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{03A51E98-FA31-42D4-AEB7-85AAFA7BEA2B}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/Mappings/AutompperProfile.cs">
+    <Files>
+      <File FileName="Infrastructure/Data/DBContext.cs" Line="8" Column="1" />
+      <File FileName="Startup.cs" />
+      <File FileName="Core/Interfaces/ISchoolRepository.cs" />
+      <File FileName="Controllers/SchoolController.cs" Line="72" Column="34" />
+      <File FileName="Infrastructure/Mappings/AutompperProfile.cs" Line="14" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="backend" expanded="True">
+            <Node name="backend" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Infrastructure" expanded="True">
+                <Node name="Data" expanded="True" />
+                <Node name="Mappings" expanded="True">
+                  <Node name="AutompperProfile.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.backend PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

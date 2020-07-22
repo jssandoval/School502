@@ -1,0 +1,18 @@
+dotnet new sln -n school
+dotnet new webapi --name school.Api
+dotnet sln school.sln add school.Api/school.Api.csproj
+dotnet new classlib -o schoool.Core
+dotnet sln school.sln add school.Core/school.Core.csproj
+new classlib -o school.Infrastructure
+dotnet sln school.sln add school.Infrastructure/school.Infrastructure.csproj
+dotnet add school.Api/school.Api.csproj reference school.Core/school.Core.csproj school.Infrastructure/school.Infrastructure.csproj
+dotnet add school.Infrastructure/school.Infrastructure.csproj reference school.Core/school.Core.csproj
+dotnet new xunit -o school.UnitTest
+dotnet new xunit -o school.IntegrationTest
+dotnet sln school.sln add school.UnitTest/school.UnitTest.csproj
+dotnet sln school.sln add school.IntegrationTest/school.IntegrationTest.csproj
+
+
+dotnet run --project school.Api/school.Api.csproj
+
+dotnet new webapi --name backend
