@@ -16,6 +16,7 @@ namespace backend.Infrastructure.Data.Configurations
                 .HasColumnName("Id");
 
             builder.Property(e => e.Name)
+                .IsRequired()
                 .HasColumnName("Name");
 
             builder.Property(e => e.Description)

@@ -58,9 +58,8 @@ namespace backend.Infrastructure.Repositories
         public async Task<School> GetSchool(string id)
         {
             // Console.Write(id);
-            var school = _context.Schools.Find(e => e.Id == id).FirstOrDefault();
+            var school = await _context.Schools.Find(e => e.Id == id).FirstOrDefaultAsync();
             // Console.Write(school);
-            await Task.Delay(1);
             return (School)school;
         }
 
@@ -69,5 +68,48 @@ namespace backend.Infrastructure.Repositories
             await _context.Schools.InsertOneAsync(school);
             // await Task.Delay(1);
         }
-    }    
+
+        public async Task<bool> UpdateSchool(School school)
+        {
+            School currentSchool = await GetSchool(school.Id);
+            bool result = true;
+            if (currentSchool != null)
+            { 
+                currentSchool.Name = school.Name;
+                currentSchool.Description = school.Description;
+                currentSchool.Logo = school.Logo;
+                currentSchool.Status = school.Status;
+
+                try
+                {
+                    await _context.Schools.ReplaceOneAsync(sc => sc.Id == school.Id, school);
+                }
+                catch(Exception e)
+                {
+                    result = false;
+                }
+            }
+            else
+            {
+                result = false;
+            }
+            //.SaveChangesAsync();
+            return result;
+        }
+
+        public async Task<bool> DeleteSchool(string id)
+        {
+            bool result = true;
+            try
+            {
+                await _context.Schools.DeleteOneAsync(sc => sc.Id == id);
+            }
+            catch (Exception e)
+            {
+                result = false;
+            }
+            //.SaveChangesAsync();
+            return result;
+        }
+    }
 }

@@ -10,5 +10,7 @@ namespace backend.Core.Interfaces
         Task<IEnumerable<School>> GetSchools();
         Task<School> GetSchool(string id);
         Task InsertSchool(School school);
+        Task<bool> UpdateSchool(School school);
+        Task<bool> DeleteSchool(string id);
     }
 }

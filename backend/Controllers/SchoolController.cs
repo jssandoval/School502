@@ -1,12 +1,17 @@
-using System;
+using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
-using backend.Core.Interfaces;
-using backend.Core.DTOs;
-using Microsoft.AspNetCore.Mvc;
-using backend.Core.Entities;
-using MongoDB.Driver.Linq;
-using System.Linq;
 using AutoMapper;
+using backend.Core.CustomEntities;
+using backend.Core.DTOs;
+using backend.Core.Entities;
+using backend.Core.Interfaces;
+using backend.Core.QueryFilters;
+using backend.Core.Services;
+using backend.Infrastructure.Interfaces;
+using backend.Responses;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace backend.Controllers
 {
@@ -14,21 +19,27 @@ namespace backend.Controllers
     [Route("api/[controller]")]
     public class SchoolController : ControllerBase
     {
-        private readonly ISchoolRepository _schoolRepository;
+        private readonly ISchoolService _schoolService;
         private readonly IMapper _mapper;
+        private readonly IUriService _uriService;
 
-
-        public SchoolController(ISchoolRepository schoolRepository, IMapper mapper)
+        public SchoolController(ISchoolService schoolRepository, IMapper mapper, IUriService uriService)
         {
-            _schoolRepository =  schoolRepository;
+            _schoolService =  schoolRepository;
             _mapper = mapper;
+            _uriService = uriService;
         } 
 
-        [HttpGet]
-        public async Task<IActionResult> GetSchools(){
+        [HttpGet(Name = nameof(GetSchools))]
+        [ProducesResponseType((int)HttpStatusCode.OK,Type = typeof(ApiResponse<IEnumerable<SchoolDto>>))]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ApiResponse<IEnumerable<SchoolDto>>))]
+        public IActionResult GetSchools([FromQuery]SchoolQueryFilter filters)
+        {
             // Console.Write("al api");
-            var school = await _schoolRepository.GetSchools();
-            var schoolDto = _mapper.Map<IEquatable<SchoolDto>>(school);
+            //var schools = await _schoolService.GetSchools();
+            //var schoolDtos = _mapper.Map<IEnumerable<SchoolDto>>(schools);
+            //var response = new ApiResponse<IEnumerable<SchoolDto>>(schoolDto/s);
+            //var schoolDto = _mapper.Map<IEquatable<SchoolDto>>(school);
             //var schoolDto = school.AsQueryable<School>().Select( x => new SchoolDto
             //{
             //    Id = x.Id,
@@ -37,24 +48,50 @@ namespace backend.Controllers
             //    Logo = x.Logo,
             //    Status = x.Status
             //});
-            return Ok(schoolDto);
+            //await Task.Delay(1);
+            var schools =  _schoolService.GetSchools(filters);
+            var schoolDtos = _mapper.Map<IEnumerable<SchoolDto>>(schools);
+
+            var metadata = new Metadata
+            {
+                TotalCount = schools.TotalCount,
+                PageSize = schools.PageSize,
+                CurrentPage = schools.CurrentPage,
+                TotalPages = schools.TotalPages,
+                HasNextPage = schools.HasNextPage,
+                HasPreviousPage = schools.HasPreviousPage,
+                NextPageUrl = _uriService.GetPostPaginationUri(filters, Url.RouteUrl(nameof(GetSchools))).ToString(),
+                PreviousPageUrl = _uriService.GetPostPaginationUri(filters, Url.RouteUrl(nameof(GetSchools))).ToString()
+            };
+
+            var response = new ApiResponse<IEnumerable<SchoolDto>>(schoolDtos)
+            {
+                Meta = metadata
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+
+            //var response = new ApiResponse<IEnumerable<SchoolDto>>(schoolDtos);
+            return Ok(response);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSchool(string id){
             // Console.Write("al api");
-            var school = await _schoolRepository.GetSchool(id);
+            var school = await _schoolService.GetSchool(id);
             var schoolDto = _mapper.Map<SchoolDto>(school);
-           // var schoolDto = new SchoolDto 
-           //{
-           //     Id = school.Id,
-           //     Name = school.Name,
-           //     Description = school.Description,
-           //     Logo = school.Logo,
-           //     Status = school.Status
-           //}; 
+            var response = new ApiResponse<SchoolDto>(schoolDto);
+            // var schoolDto = new SchoolDto 
+            //{
+            //     Id = school.Id,
+            //     Name = school.Name,
+            //     Description = school.Description,
+            //     Logo = school.Logo,
+            //     Status = school.Status
+            //}; 
             // Console.Write(school);
-            return Ok(schoolDto);
+
+            return Ok(response);
         }
 
         [HttpPost]
@@ -68,8 +105,27 @@ namespace backend.Controllers
             //    Status = schoolDto.Status
             //};
             var school = _mapper.Map<School>(schoolDto);
-            await _schoolRepository.InsertSchool(school);
-            return Ok(schoolDto);
+            await _schoolService.InsertSchool(school);
+            var response = new ApiResponse<bool>(true);
+            return Ok(response);
         }
-    }    
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutSchool(string id, SchoolDto schoolDto)
+        {
+            var school = _mapper.Map<School>(schoolDto);
+            school.Id = id;
+            var result = await _schoolService.UpdateSchool(school);
+            var response = new ApiResponse<bool>(result);
+            return Ok(response);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteSchool(string id)
+        {
+            var result = await _schoolService.DeleteSchool(id);
+            var response = new ApiResponse<bool>(result); 
+            return Ok(response);
+        }
+    }
 }

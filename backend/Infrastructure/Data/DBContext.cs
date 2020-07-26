@@ -5,6 +5,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using backend.Infrastructure.Data.Configurations;
 using MongoDB.Driver;
+using System.Linq;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection;
 
 namespace backend.Infrastructure.Data
 {
@@ -18,6 +21,7 @@ namespace backend.Infrastructure.Data
 
         //Documents
         public readonly IMongoCollection<School> Schools;
+        public readonly IMongoCollection<User> Users;
 
         public DBContext(IOptions<DBSettings> settings, IConfiguration Configuration)
         {
@@ -30,10 +34,23 @@ namespace backend.Infrastructure.Data
             database = client.GetDatabase(_configuration.GetConnectionString("DatabaseName"));
 
             Schools = database.GetCollection<School>("Schools");
-
-            //if (client != null)
-            //    _database = client.GetDatabase(settings.Value.DatabaseName);
+            Users = database.GetCollection<User>("Users");
         }
+
+        //public virtual DbSet<School> Schools { get; set; }
+        public IMongoCollection<T> DbSet<T>() where T : BaseEntity
+        {
+            var table = typeof(T).GetCustomAttribute<TableAttribute>(false).Name;
+            return database.GetCollection<T>(table);
+        }
+
+        //public IQueryable<School> Schools
+        //{
+        //    get
+        //    {
+        //        return database.GetCollection<School>("Schools").AsQueryable();
+        //    }
+        //}
 
         //public virtual DbSet<School> School { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
