@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>school.Api</name>
+    </assembly>
+    <members>
+        <member name="M:school.Controllers.SchoolController.GetSchools(school.Core.QueryFilters.SchoolQueryFilter)">
+            <summary>
+            Retrive all Schools
+            </summary>
+            <param name="filters">filters to apply</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

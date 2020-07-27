@@ -1,0 +1,40 @@
+﻿<Properties StartupConfiguration="{03A51E98-FA31-42D4-AEB7-85AAFA7BEA2B}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/Validators/SchoolValidator.cs">
+    <Files>
+      <File FileName="Startup.cs" Line="62" Column="1" />
+      <File FileName="Infrastructure/Extensions/ServiceCollectionExtension.cs" Line="102" Column="27" />
+      <File FileName="Infrastructure/Repositories/SecurityRepository.cs" Line="27" Column="1" />
+      <File FileName="Infrastructure/Services/PasswordService.cs" Line="21" Column="1" />
+      <File FileName="Infrastructure/Validators/SchoolValidator.cs" Line="14" Column="61" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="backend" expanded="True">
+            <Node name="backend" expanded="True">
+              <Node name="Infrastructure" expanded="True">
+                <Node name="Extensions" expanded="True" />
+                <Node name="Services" expanded="True" />
+                <Node name="Validators" expanded="True">
+                  <Node name="SchoolValidator.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>hash</Value>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.backend PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

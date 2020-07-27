@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>backend</name>
+    </assembly>
+    <members>
+        <member name="M:backend.Controllers.SchoolController.GetSchools(backend.Core.QueryFilters.SchoolQueryFilter)">
+            <summary>
+            Retrive all Schools
+            </summary>
+            <param name="filters">filters to apply</param>
+            <returns></returns>
+        </member>
+        <member name="P:backend.Core.DTOs.SchoolDto.Id">
+            <summary>
+            Autogenated Id for School entry
+            </summary>
+        </member>
+        <member name="P:backend.Core.DTOs.SchoolDto.Name">
+            <summary>
+            Name of School
+            </summary>
+        </member>
+    </members>
+</doc>

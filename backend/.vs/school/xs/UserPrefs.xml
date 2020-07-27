@@ -1,0 +1,46 @@
+﻿<Properties StartupConfiguration="{9FE832E9-EF7C-4813-93DC-47FDDDBF3DD6}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="school.Core/QueryFilters/SchoolQueryFilter.cs">
+    <Files>
+      <File FileName="school.Api/Controllers/TokenController.cs" Line="53" Column="14" />
+      <File FileName="school.Api/Controllers/SchoolController.cs" Line="59" Column="58" />
+      <File FileName="school.Core/DTOs/SchoolDto.cs" Line="1" Column="1" />
+      <File FileName="school.Core/QueryFilters/SchoolQueryFilter.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="school" expanded="True">
+            <Node name="school.Api" expanded="True">
+              <Node name="Controllers" expanded="True" />
+            </Node>
+            <Node name="school.Core" expanded="True">
+              <Node name="DTOs" expanded="True" />
+              <Node name="QueryFilters" expanded="True">
+                <Node name="SchoolQueryFilter.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="school.Infrastructure" expanded="True">
+              <Node name="Extensions" expanded="True" />
+              <Node name="Validators" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>hash</Value>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.school.Api PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/jssandoval/OneDrive/PROJECTS/PROYS/colegios/backend/school.Api/Controllers/PostController.cs" relfile="school.Api/Controllers/PostController.cs" line="17" column="1" />
+      <Breakpoint file="/Users/jssandoval/OneDrive/PROJECTS/PROYS/colegios/backend/school.Api/Controllers/TokenController.cs" relfile="school.Api/Controllers/TokenController.cs" line="50" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
